@@ -4,14 +4,51 @@
     <meta charset="UTF-8">
     <title>جمع معلومات العائلة</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script>
+        function updateSecondBranch() {
+            var firstBranch = document.getElementById("firstBranch").value;
+            var secondBranch = document.getElementById("secondBranch");
+            var options = {
+                "العواد": ["المحمد"],
+                "الحسين": ["العبدالله", "السعود", "المساعد", "الغنيم", "العواد", "السعد", "العايد", "المحمد"],
+                "الدخيل": ["السعد", "العواد-", "السعود", "المحمد"]
+            };
+
+            // مسح الخيارات الحالية
+            while (secondBranch.options.length) {
+                secondBranch.remove(0);
+            }
+
+            // إضافة الخيارات الجديدة
+            if (options[firstBranch]) {
+                options[firstBranch].forEach(function(branch) {
+                    var option = new Option(branch, branch);
+                    secondBranch.add(option);
+                });
+            }
+        }
+
+        function addChild() {
+            var childrenContainer = document.getElementById("childrenContainer");
+            var childInput = document.createElement("input");
+            childInput.type = "text";
+            childInput.name = "children[]";
+            childInput.placeholder = "اسم الابن";
+            childrenContainer.appendChild(childInput);
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <h1>لإفراد العائلة غير الموجودين في الشجرة القديمة</h1>
         <h3>اختر الفرع الأول العواد أو الحسين أو الدخيل ثم اختر الفرع الثاني وبعدها اكتب لنا اسمك إلى الفرع الثاني</h3>
-        <form id="familyForm">
+        <form name="familyForm" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="familyForm">
+            <p style="display:none;">
+                <label>Don't fill this out if you're human: <input name="bot-field"></label>
+            </p>
             <label for="firstBranch">الفرع:</label><br>
-            <select id="firstBranch" name="firstBranch" required>
+            <select id="firstBranch" name="firstBranch" onchange="updateSecondBranch()" required>
                 <option value="">اختر الفرع</option>
                 <option value="العواد">العواد</option>
                 <option value="الحسين">الحسين</option>
@@ -31,39 +68,5 @@
             <input type="submit" value="إرسال">
         </form>
     </div>
-
-    <script>
-        function addChild() {
-            var childrenContainer = document.getElementById("childrenContainer");
-            var childInput = document.createElement("input");
-            childInput.type = "text";
-            childInput.name = "children[]";
-            childInput.placeholder = "اسم الابن";
-            childrenContainer.appendChild(childInput);
-        }
-
-        document.getElementById("familyForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            var formData = new FormData(event.target);
-            var data = Object.fromEntries(formData.entries());
-            data.children = formData.getAll("children[]");
-
-            fetch("https://your-server-endpoint", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            }).then(response => {
-                if (response.ok) {
-                    alert("تم إرسال معلوماتك بنجاح!");
-                } else {
-                    alert("حدث خطأ أثناء الإرسال.");
-                }
-            }).catch(error => {
-                console.error("Error:", error);
-            });
-        });
-    </script>
 </body>
 </html>
