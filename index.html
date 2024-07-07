@@ -30,11 +30,13 @@
 
         function addChild() {
             var childrenContainer = document.getElementById("childrenContainer");
+            var childDiv = document.createElement("div");
             var childInput = document.createElement("input");
             childInput.type = "text";
             childInput.name = "children[]";
             childInput.placeholder = "اسم الابن";
-            childrenContainer.appendChild(childInput);
+            childDiv.appendChild(childInput);
+            childrenContainer.appendChild(childDiv);
         }
     </script>
 </head>
