@@ -28,6 +28,17 @@
                 });
             }
         }
+
+        function addChild() {
+            var childrenContainer = document.getElementById("childrenContainer");
+            var childDiv = document.createElement("div");
+            var childInput = document.createElement("input");
+            childInput.type = "text";
+            childInput.name = "children[]";
+            childInput.placeholder = "اسم الابن";
+            childDiv.appendChild(childInput);
+            childrenContainer.appendChild(childDiv);
+        }
     </script>
 </head>
 <body>
@@ -49,12 +60,14 @@
             </select>
             <label for="name">الاسم الكامل:</label>
             <input type="text" id="name" name="name" required>
-            <label for="children1">اسم الابن :</label>
+            
+            <label for="children1">اسم الابن 1:</label>
             <input type="text" id="children1" name="children[]" placeholder="اسم الابن 1">
-            <label for="children2">اسم الابن 2:</label>
-            <input type="text" id="children2" name="children[]" placeholder="اسم الابن 2">
-            <label for="children3">اسم الابن 3:</label>
-            <input type="text" id="children3" name="children[]" placeholder="اسم الابن 3">
+            
+            <label>الأبناء الإضافيين:</label>
+            <div id="childrenContainer"></div>
+            <button type="button" onclick="addChild()">إضافة ابن</button><br><br>
+            
             <input type="submit" value="إرسال">
         </form>
         <a href="display_data.html">عرض الشجرة القديمة</a>
