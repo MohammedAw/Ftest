@@ -7,6 +7,8 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    direction: rtl; /* إضافة هذه الخاصية لجعل الاتجاه من اليمين إلى اليسار */
+    text-align: right; /* إضافة هذه الخاصية لضبط النص إلى اليمين */
 }
 
 .container {
@@ -18,6 +20,7 @@ body {
     max-width: 800px;
     margin: 20px;
     text-align: right;
+    direction: rtl; /* إضافة هذه الخاصية لجعل الاتجاه من اليمين إلى اليسار */
 }
 
 h1, h3 {
@@ -38,6 +41,7 @@ input, select {
     box-sizing: border-box;
     border: 1px solid #ddd;
     border-radius: 5px;
+    direction: rtl; /* إضافة هذه الخاصية لجعل الاتجاه من اليمين إلى اليسار */
 }
 
 input[type="submit"] {
