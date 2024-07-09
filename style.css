@@ -24,9 +24,16 @@ h1, h3 {
     color: #333;
 }
 
-label, input {
+label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, select {
     width: 100%;
-    margin-top: 5px;
+    margin-bottom: 10px;
     padding: 10px;
     box-sizing: border-box;
     border: 1px solid #ddd;
