@@ -2,6 +2,7 @@
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>جمع معلومات العائلة</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script>
@@ -35,27 +36,25 @@
         <h3>اختر الفرع الأول العواد أو الحسين أو الدخيل ثم اختر الفرع الثاني وبعدها اكتب لنا اسمك إلى الفرع الثاني</h3>
         <form name="familyForm" method="POST" data-netlify="true">
             <input type="hidden" name="form-name" value="familyForm">
-            <label for="firstBranch">الفرع:</label><br>
+            <label for="firstBranch">الفرع:</label>
             <select id="firstBranch" name="firstBranch" onchange="updateSecondBranch()" required>
                 <option value="">اختر الفرع</option>
                 <option value="العواد">العواد</option>
                 <option value="الحسين">الحسين</option>
                 <option value="الدخيل">الدخيل</option>
-            </select><br>
-            <label for="secondBranch">الفرع الثاني:</label><br>
+            </select>
+            <label for="secondBranch">الفرع الثاني:</label>
             <select id="secondBranch" name="secondBranch" required>
                 <option value="">اختر الفرع الثاني</option>
-            </select><br><br>
-            <label for="name">الاسم الكامل:</label><br>
-            <input type="text" id="name" name="name" required><br>
-
-            <label for="children1">اسم الابن 1:</label><br>
-            <input type="text" id="children1" name="children[]" placeholder="اسم الابن 1"><br>
-            <label for="children2">اسم الابن 2:</label><br>
-            <input type="text" id="children2" name="children[]" placeholder="اسم الابن 2"><br>
-            <label for="children3">اسم الابن 3:</label><br>
-            <input type="text" id="children3" name="children[]" placeholder="اسم الابن 3"><br>
-
+            </select>
+            <label for="name">الاسم الكامل:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="children1">اسم الابن 1:</label>
+            <input type="text" id="children1" name="children[]" placeholder="اسم الابن 1">
+            <label for="children2">اسم الابن 2:</label>
+            <input type="text" id="children2" name="children[]" placeholder="اسم الابن 2">
+            <label for="children3">اسم الابن 3:</label>
+            <input type="text" id="children3" name="children[]" placeholder="اسم الابن 3">
             <input type="submit" value="إرسال">
         </form>
         <a href="display_data.html">عرض الشجرة القديمة</a>
