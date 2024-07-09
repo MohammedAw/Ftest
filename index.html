@@ -27,19 +27,6 @@
                 });
             }
         }
-
-        function addChild() {
-            var childrenContainer = document.getElementById("childrenContainer");
-            var childDiv = document.createElement("div");
-            childDiv.className = "child-entry";
-            var childInput = document.createElement("input");
-            childInput.id="child";
-            childInput.type = "text";
-            childInput.name = "children[]";
-            childInput.placeholder = "اسم الابن";
-            childDiv.appendChild(childInput);
-            childrenContainer.appendChild(childDiv);
-        }
     </script>
 </head>
 <body>
@@ -62,9 +49,12 @@
             <label for="name">الاسم الكامل:</label><br>
             <input type="text" id="name" name="name" required><br>
 
-            <label for="childrenContainer">الأبناء:</label>
-            <div id="childrenContainer"></div>
-            <button type="button" onclick="addChild()">إضافة ابن</button><br><br>
+            <label for="children1">اسم الابن 1:</label><br>
+            <input type="text" id="children1" name="children[]" placeholder="اسم الابن 1"><br>
+            <label for="children2">اسم الابن 2:</label><br>
+            <input type="text" id="children2" name="children[]" placeholder="اسم الابن 2"><br>
+            <label for="children3">اسم الابن 3:</label><br>
+            <input type="text" id="children3" name="children[]" placeholder="اسم الابن 3"><br>
 
             <input type="submit" value="إرسال">
         </form>
