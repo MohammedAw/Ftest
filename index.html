@@ -31,6 +31,7 @@
         function addChild() {
             var childrenContainer = document.getElementById("childrenContainer");
             var childDiv = document.createElement("div");
+            childDiv.className = "child-entry";
             var childInput = document.createElement("input");
             childInput.type = "text";
             childInput.name = "children[]";
@@ -44,11 +45,8 @@
     <div class="container">
         <h1>لإفراد العائلة غير الموجودين في الشجرة القديمة</h1>
         <h3>اختر الفرع الأول العواد أو الحسين أو الدخيل ثم اختر الفرع الثاني وبعدها اكتب لنا اسمك إلى الفرع الثاني</h3>
-        <form name="familyForm" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <form name="familyForm" method="POST" data-netlify="true">
             <input type="hidden" name="form-name" value="familyForm">
-            <p style="display:none;">
-                <label>Don't fill this out if you're human: <input name="bot-field"></label>
-            </p>
             <label for="firstBranch">الفرع:</label><br>
             <select id="firstBranch" name="firstBranch" onchange="updateSecondBranch()" required>
                 <option value="">اختر الفرع</option>
